@@ -1,4 +1,4 @@
-button{
+.componentButton{
   background-color: var(--black);
   color: var(--white);
 
@@ -11,5 +11,16 @@ button{
   font-size: 1rem;
 
   margin-left: auto;
+
+  &:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  transition: color 0.2s;
+
+  &:hover{
+    color: var(--gray-900);
+  }
   
 }
