@@ -1,0 +1,27 @@
+.feed{
+  width: 95vw;
+  min-height: 100vh;
+
+  background-color: var(--white);
+  
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .pageContent{
+    width: 100%;
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 700px){
+  .feed{
+    width: 100vw;
+  }
+}
+
+@media(min-width: 800px){
+  .feed{
+    width: 50vw;
+  }
+}
