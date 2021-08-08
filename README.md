@@ -19,8 +19,8 @@ This is a React challenge that has a login page and a feed to post and edit your
 
 ### Features:
 
-- [ ] Login Page
-- [ ] Feed Page
+- [ x ] Login Page
+- [ x ] Feed Page
 - [ ] Delete Post Modal
 - [ ] Edit Item Modal
 
@@ -29,10 +29,10 @@ This is a React challenge that has a login page and a feed to post and edit your
 ### Tech:
 #### the following tools were used in this project:
 
+- Typescript
 - React
 - React Router Dom
+- React Icons
 - Redux
 - Sass
-- React-Modal
-
 > You can see the [package.json](https://google.com.br) file.
