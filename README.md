@@ -21,10 +21,16 @@ This is a React challenge that has a login page and a feed to post and edit your
 
 - [ x ] Login Page
 - [ x ] Feed Page
-- [ ] Delete Post Modal
-- [ ] Edit Item Modal
-
+- [ x ] Delete Post Modal
+- [ x ] Edit Item Modal
+- [ ] Next-page
+- [ ] Optimize App
 ### How it Works:
+
+#### useFeed Hook:
+useFeed is a custom hook that's help us use feed Features like create, edit and delete posts
+#### useButton Hoook:
+useButton is another custom hook that help us use the Button component in different pages with different layouts.
 
 ### Tech:
 #### the following tools were used in this project:
@@ -32,7 +38,9 @@ This is a React challenge that has a login page and a feed to post and edit your
 - Typescript
 - React
 - React Router Dom
+- React Modal
 - React Icons
 - Redux
 - Sass
+- Moment
 > You can see the [package.json](https://google.com.br) file.
