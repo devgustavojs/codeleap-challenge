@@ -26,7 +26,9 @@ export function useButton(NumberOfInputs: number){
   return {
     isActive,
     inputEnteredValue,
+    setInputEnteredValue,
     textareaEnteredValue,
+    setTextareaEnteredValue,
     input: {
       onChange: (event: React.ChangeEvent<HTMLInputElement>) =>{
         setInputEnteredValue(event.target.value)
