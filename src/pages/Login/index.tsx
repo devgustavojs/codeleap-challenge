@@ -24,11 +24,13 @@ export function Login(){
    }
  }
   return(
-      <div className="login-modal">
-        <h4>Welcome to CodeLeap network!</h4>
-        <p>Please enter your username</p>
-        <input type="text" name="username" placeholder="John doe" {...input} />
-        <Button value="ENTER" isActive={isActive} onClick={handleSetUsername}/>
+      <div className="login">
+        <div className="login-modal">
+          <h4>Welcome to CodeLeap network!</h4>
+          <p>Please enter your username</p>
+          <input type="text" name="username" placeholder="John doe" {...input} />
+          <Button value="ENTER" isActive={isActive} onClick={handleSetUsername}/>
+        </div>
       </div>
   )
 }
