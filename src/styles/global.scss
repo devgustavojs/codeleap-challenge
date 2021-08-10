@@ -16,19 +16,6 @@
   
 }
 
-
-@media (max-width: 1080px){
-  html{
-    font-size: 93.75%;
-  }
-}
-
-@media (max-width: 720px){
-  html{
-    font-size: 87.5%;
-  }
-}
-
 body{
   background-color: var(--background);
 }
@@ -48,12 +35,44 @@ a{
 }
 
 #root{
-  width: 100vw;
+  width: 99vw;
   height: 100vh;
  
   display: flex;
   align-items: center;
-  justify-content: center;
 
   flex-direction: column;
+}
+
+.react-modal-overlay{
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.react-modal-content{
+  width: 40%;
+}
+
+@media (max-width: 1080px){
+  html{
+    font-size: 93.75%;
+  }
+}
+
+@media (max-width: 720px){
+  .react-modal-content{
+    width: 80%;
+  }
+  html{
+    font-size: 87.5%;
+  }
 }
