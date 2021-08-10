@@ -1,25 +1,89 @@
+import Moment from 'react-moment';
+
+import { useState } from 'react';
+import { useFeed } from '../../hooks/useFeed';
+
+import { EditPostModal } from '../EditPostModal';
+
 import {FaTrash, FaEdit} from 'react-icons/fa';
 
-import './styles.scss'
+import './styles.scss';
+import { DeletePostModal } from '../DeletePostModal';
+interface PostItem{
+  id: number,
+  username: string,
+  created_datetime: Date,
+  title: string,
+  content: string
+}
+interface PostProps{
+  data: PostItem,
+  username: string,
+  fetchNewPost: () => void,
+}
 
-export function Post(){
+export function Post({data, username, fetchNewPost, ...rest}:PostProps){
+  const {uDeletePost} = useFeed();
 
+  const [isEditPostModalOpen, setIsEditPostModalOpen] = useState(false);
+  const [isDeletePostModalOpen, setIsDeletePostModalOpen] = useState(false);
+
+  async function handleInputDelete(){    
+    await uDeletePost(data.id)
+    handleCloseDeletePostModal()
+  }
+
+  function handleOpenDeletePostModal(){
+    setIsDeletePostModalOpen(true);
+  }
+
+  async function handleCloseDeletePostModal(){
+    await fetchNewPost();
+    setIsDeletePostModalOpen(false);
+  }
+
+  function handleOpenEditPostModal(){
+    setIsEditPostModalOpen(true);
+  }
+
+  async function handleCloseEditPostModal(){
+    await fetchNewPost();
+    setIsEditPostModalOpen(false);
+  }
+  
   return(
+    <>
     <div className="post">
       <header>
-        <h1>My First Post at CodeLeap Network</h1>
-        <div className="icons">
-          <FaTrash />
-          <FaEdit />
-        </div>
+        <h1>{data.title}</h1>
+        {username === data.username ? 
+        <>
+          <EditPostModal 
+            data={data}
+            isOpen={isEditPostModalOpen}
+            onRequestClose={handleCloseEditPostModal}
+          />
+          <DeletePostModal 
+            isOpen={isDeletePostModalOpen}
+            onRequestClose={handleCloseDeletePostModal}
+            handleInputDelete={handleInputDelete}
+          />
+          <div className="icons">
+            <FaTrash onClick={handleOpenDeletePostModal}/>
+            <FaEdit onClick={handleOpenEditPostModal}/>
+          </div> 
+        </>
+        : ''}
+
       </header>
       <div className="postInfos">
-        <p className="username">@Victor</p>
-        <p>25 minutes ago</p>
+        <p className="username">@{data.username}</p>
+        <p><Moment fromNow>{data.created_datetime}</Moment></p>
       </div>
       <p className="postContent">
-      Curabitur suscipit suscipit tellus. Phasellus consectetuer vestibulum elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas egestas arcu quis ligula mattis placerat. Duis vel nibh at velit scelerisque suscipit. Duis lobortis massa imperdiet quam. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. Fusce a quam. Nullam vel sem. Nullam cursus lacinia erat.
+     {data.content}
       </p>
     </div>
+    </>
   )
 }
