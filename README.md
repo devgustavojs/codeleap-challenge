@@ -1,3 +1,5 @@
+![codeleap logo](https://github.com/devgustavojs/codeleap-challenge/assets/codeleap-logo.png)
+
 <h1 align="center" href> CODELEAP CHALLENGE </h1>
 <h2 align="center"> This is an admission challenge to <a href="https://www.codeleap.co.uk/">CodeLeap</a>
 </h2>
@@ -11,7 +13,6 @@
  <a href="#features">Features</a> • 
  <a href="#how-it-works">How it works</a> • 
  <a href="#tech">Tech</a> • 
- <a href="#autor">Autor</a>
 </p>
 
 ### About:

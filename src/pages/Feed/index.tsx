@@ -20,6 +20,7 @@ export function Feed(){
   const {postsData, uGetPosts} = useFeed();
 
   const [username, setUsername] = useState('');
+  const [allPostsData, setAllPostsData] = useState();
 
   const storeUsername = useSelector<userState, userState["username"]>(state => state.username);
 
