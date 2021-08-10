@@ -3,7 +3,7 @@
 </h2>
 
 <h3 align="center">
-🚧 Status: under construction 🚀 🚧
+  🚀 Status: in optimization 🚀
 </h3>
 
 <p align="center">
@@ -19,19 +19,18 @@ This is a React challenge that has a login page and a feed to post and edit your
 
 ### Features:
 
-- [ x ] Login Page
-- [ x ] Feed Page
-- [ x ] Delete Post Modal
-- [ x ] Edit Item Modal
+- [x] Login Page
+- [x] Feed Page
+- [x] Delete Post Modal
+- [x] Edit Item Modal
 - [ ] Next-page
 - [ ] Optimize App
 ### How it Works:
 
 #### useFeed Hook:
-useFeed is a custom hook that's help us use feed Features like create, edit and delete posts
-#### useButton Hoook:
-useButton is another custom hook that help us use the Button component in different pages with different layouts.
-
+useFeed is a custom hook that's help us use feed Features like create, edit and delete posts.
+#### useButton Hook:
+useButton is another custom hook that's help us use the Button component in different pages with different layouts.
 ### Tech:
 #### the following tools were used in this project:
 
@@ -43,4 +42,4 @@ useButton is another custom hook that help us use the Button component in differ
 - Redux
 - Sass
 - Moment
-> You can see the [package.json](https://google.com.br) file.
+> You can see the [package.json](https://github.com/devgustavojs/codeleap-challenge/blob/main/package.json) file.
