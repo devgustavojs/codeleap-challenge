@@ -5,7 +5,7 @@
 </h2>
 
 <h3 align="center">
-  🚀 Status: in production 🚀
+  🚀 Status: Finished 🚀
 </h3>
 
 <p align="center">
@@ -17,7 +17,7 @@
 
 [Access the project](https://codeleap-challenge.vercel.app/feed)
 ### About:
-This is a React challenge that has a login page and a feed to post and edit your post. 
+This is a React challenge that has a login page and a feed to post, edit and delete your post. 
 
 ### Features:
 
@@ -27,6 +27,7 @@ This is a React challenge that has a login page and a feed to post and edit your
 - [x] Edit Item Modal
 - [x] Next-page
 - [x] Optimize App
+
 ### How it Works:
 
 #### useFeed Hook:
