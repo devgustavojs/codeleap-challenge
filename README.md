@@ -5,7 +5,7 @@
 </h2>
 
 <h3 align="center">
-  🚀 Status: in optimization 🚀
+  🚀 Status: in production 🚀
 </h3>
 
 <p align="center">
@@ -15,6 +15,7 @@
  <a href="#tech">Tech</a> • 
 </p>
 
+[Access the project](https://codeleap-challenge.vercel.app/feed)
 ### About:
 This is a React challenge that has a login page and a feed to post and edit your post. 
 
