@@ -4,17 +4,17 @@ import { useState } from 'react';
 import { useFeed } from '../../hooks/useFeed';
 
 import { EditPostModal } from '../EditPostModal';
+import { DeletePostModal } from '../DeletePostModal';
 
 import {FaTrash, FaEdit} from 'react-icons/fa';
 
 import './styles.scss';
-import { DeletePostModal } from '../DeletePostModal';
 interface PostItem{
   id: number,
   username: string,
   created_datetime: Date,
   title: string,
-  content: string
+  content: string,
 }
 interface PostProps{
   data: PostItem,
@@ -83,7 +83,6 @@ export function Post({data, username, fetchNewPost}:PostProps){
           </div> 
         </>
         : ''}
-
       </header>
       <div className="postInfos">
         <p className="username">@{data.username}</p>

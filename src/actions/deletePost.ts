@@ -8,5 +8,4 @@ export async function deletePost(id: number){
   }catch(err){
     throw err;
   }
-
 }

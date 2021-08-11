@@ -11,7 +11,6 @@ import { Feed } from './pages/Feed';
 
 import './styles/global.scss';
 
-
 Modal.setAppElement('#root');
 
 export function App() {

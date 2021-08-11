@@ -8,12 +8,11 @@ export async function createPost(username: string, title : string, content : str
       method:"POST", 
       body: JSON.stringify({username: username, title: title, content: content})
     })
-    .then( response => response.json)
+    .then(response => response.json)
     .then((data) => {
       return data;
     })
   }catch(err){
     throw err;
   }
-
 }

@@ -7,9 +7,14 @@ interface ButtonProps {
 }
 
 export function Button({value, isActive, ...rest}: ButtonProps){
-
   return(
-    <button className="componentButton" disabled={!isActive} type="button" {...rest}>{value}</button>
+    <button 
+      className="componentButton" 
+      disabled={!isActive} 
+      type="button" 
+      {...rest}
+    >
+      { value }
+    </button>
   )
-
 }

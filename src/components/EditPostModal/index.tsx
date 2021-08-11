@@ -27,7 +27,6 @@ export function EditPostModal({data, isOpen, onRequestClose}: EditPostModalProps
   useEffect(() =>{
     setInputEnteredValue(data.title);
     setTextareaEnteredValue(data.content);
-    
     // eslint-disable-next-line
   }, [])
 
@@ -51,9 +50,21 @@ export function EditPostModal({data, isOpen, onRequestClose}: EditPostModalProps
       <form onSubmit={e => e.preventDefault()}>
         <h1>Edit Post</h1>
         <label htmlFor="title">Title</label>
-        <input type="text" id="title" placeholder="Hello world" value={inputEnteredValue} {...input}/>
+        <input 
+          type="text" 
+          id="title" 
+          placeholder="Hello world" 
+          value={inputEnteredValue} 
+          {...input}
+        />
         <label htmlFor="content">Content</label>
-        <textarea id="content" placeholder="Content here" value={textareaEnteredValue} {...textarea}></textarea>
+        <textarea 
+          id="content" 
+          placeholder="Content here" 
+          value={textareaEnteredValue} 
+          {...textarea}
+        >
+        </textarea>
         <Button isActive={isActive} value="SAVE" onClick={handleEditPost}/>
       </form>
     </Modal>

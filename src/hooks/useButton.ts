@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 export function useButton(NumberOfInputs: number){
+  
   const [inputEnteredValue, setInputEnteredValue] = useState('');
   const [textareaEnteredValue, setTextareaEnteredValue] = useState('');
 
@@ -21,8 +22,6 @@ export function useButton(NumberOfInputs: number){
     }
   }
 
-  // TO DO: RETURN WHAT NEED TO BE FILLED TO BUTTON BE ACTIVE.
-
   return {
     isActive,
     inputEnteredValue,
@@ -31,15 +30,13 @@ export function useButton(NumberOfInputs: number){
     setTextareaEnteredValue,
     input: {
       onChange: (event: React.ChangeEvent<HTMLInputElement>) =>{
-        setInputEnteredValue(event.target.value)
+        setInputEnteredValue(event.target.value);
       }
     },
     textarea: {
       onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) =>{
-        setTextareaEnteredValue(event.target.value)
+        setTextareaEnteredValue(event.target.value);
       }
     }
-
   }
-
 }

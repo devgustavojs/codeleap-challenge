@@ -1,7 +1,6 @@
-
 interface UpdatedPost{
   title: string,
-  content: string
+  content: string,
 }
 
 export async function editPost(postId: number, newData: UpdatedPost){
@@ -12,9 +11,8 @@ export async function editPost(postId: number, newData: UpdatedPost){
       },
       method: 'PATCH',
       body: JSON.stringify({title: newData.title, content: newData.content}),
-    }).then(response =>{return response.status})
+    }).then(response =>{return response.status});
   }catch(err){
     throw err;
   } 
-
 }

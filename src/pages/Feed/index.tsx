@@ -2,7 +2,6 @@
 import { userState } from '../../redux/username/username.reducer';
 
 import { useSelector } from 'react-redux';
-
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
@@ -92,7 +91,6 @@ export function Feed(){
         })}
         {nextPage ? <LoadMorePosts key={0} fetchNextPage={() => {fetchNextPage(nextPage)}} /> : <EndOfPosts/>}
       </div>
-      
     </div>
   )
 }

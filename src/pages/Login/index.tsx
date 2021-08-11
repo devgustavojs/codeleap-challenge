@@ -8,7 +8,7 @@ import { useButton } from '../../hooks/useButton'
 import './styles.scss'
 
 export function Login(){
-  let history = useHistory()
+  let history = useHistory();
 
  const {isActive, inputEnteredValue, input} = useButton(1);
 

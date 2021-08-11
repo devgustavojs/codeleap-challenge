@@ -1,10 +1,8 @@
 import { useState } from "react";
 
 import { createPost } from "../actions/createPost";
-
-import { deletePost } from "../actions/deletePost";
-
 import { editPost } from "../actions/editPost";
+import { deletePost } from "../actions/deletePost";
 
 interface PostItem{
   id: number,
@@ -36,7 +34,7 @@ export function useFeed(){
   async function uEditPost(postId: number, newData: editItem){
     const editResponse = await editPost(postId, newData);
 
-    return editResponse
+    return editResponse;
   }
 
   return {
