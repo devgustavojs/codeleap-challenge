@@ -32,9 +32,13 @@ export function EditPostModal({data, isOpen, onRequestClose}: EditPostModalProps
   }, [])
 
   async function handleEditPost(){
-    await uEditPost(data.id, {title: inputEnteredValue, content: textareaEnteredValue});
-    onRequestClose() 
-    
+    const editPostResponse = await uEditPost(data.id, {title: inputEnteredValue, content: textareaEnteredValue});
+    if(editPostResponse === 200){
+      onRequestClose();
+    }else{
+      onRequestClose();
+      alert('error editing post');
+    }
   }
   
   return(

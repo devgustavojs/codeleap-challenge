@@ -6,32 +6,60 @@ import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useFeed } from '../../hooks/useFeed';
 
 import { Header } from '../../components/Header';
 import { NewPost } from '../../components/NewPost';
 import { Post } from '../../components/Post';
+import { LoadMorePosts } from '../../components/LoadMorePosts';
+import { EndOfPosts } from '../../components/EndOfPosts';
 
 import './styles.scss'
 
+interface PostItem {
+  id: number,
+  username: string,
+  created_datetime: Date,
+  title: string,
+  content: string,
+}
+
+
 export function Feed(){
-  let history = useHistory()
-
-  const {postsData, uGetPosts} = useFeed();
-
+  let history = useHistory();
+  
   const [username, setUsername] = useState('');
-  const [allPostsData, setAllPostsData] = useState();
+  const [allPostsData, setAllPostsData] = useState<PostItem[]>([]);
+  
+  const [nextPage, setNextPage] = useState('');
 
   const storeUsername = useSelector<userState, userState["username"]>(state => state.username);
 
   async function fetchNewPost(){
-    const getPostsResponse = await uGetPosts();
-    if(getPostsResponse){
-      return true;
-    }else{
-      return false;
+      try{
+        fetch('https://dev.codeleap.co.uk/careers/')
+        .then(response => response.json())
+        .then((data) => {
+          setAllPostsData(data.results);
+          setNextPage(data.next);
+        });
+      }catch(err){
+         throw err;
+      }
+  }
+
+  async function fetchNextPage(nextData: string){
+    try{
+      fetch(nextData)
+      .then(response => response.json())
+      .then(data => {
+        setNextPage(data.next);
+        setAllPostsData([...allPostsData, ...data.results]);
+      })
+    }catch(err){
+      throw err;
     }
   }
+
 
   useEffect(() => {
     if(typeof storeUsername != "string"){
@@ -39,7 +67,7 @@ export function Feed(){
       history.push('/');
     }else{
       setUsername(storeUsername);
-      uGetPosts();
+      fetchNewPost();
     }
     // eslint-disable-next-line
   }, []);
@@ -47,23 +75,24 @@ export function Feed(){
   return(
     <div className="feed">
       <Header />
-
       <div className="pageContent">
         <NewPost 
           username={username} 
           fetchNewPost={fetchNewPost}
         />
-        {postsData?.map(post =>{
+        {allPostsData.map(post =>{
           return(
             <Post
               key={post.id} 
-              data={post} 
+              data={post}
               username={username} 
               fetchNewPost={fetchNewPost}
             />
           )
         })}
+        {nextPage ? <LoadMorePosts key={0} fetchNextPage={() => {fetchNextPage(nextPage)}} /> : <EndOfPosts/>}
       </div>
+      
     </div>
   )
 }

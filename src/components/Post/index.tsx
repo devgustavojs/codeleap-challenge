@@ -22,23 +22,32 @@ interface PostProps{
   fetchNewPost: () => void,
 }
 
-export function Post({data, username, fetchNewPost, ...rest}:PostProps){
+export function Post({data, username, fetchNewPost}:PostProps){
   const {uDeletePost} = useFeed();
 
   const [isEditPostModalOpen, setIsEditPostModalOpen] = useState(false);
   const [isDeletePostModalOpen, setIsDeletePostModalOpen] = useState(false);
 
-  async function handleInputDelete(){    
-    await uDeletePost(data.id)
-    handleCloseDeletePostModal()
+  async function handleInputDelete(){   
+    try{
+      const deletePostResponse = await uDeletePost(data.id);
+      if(deletePostResponse === 204){
+        handleCloseDeletePostModal();
+      }else{
+        alert('Error deleting post');
+      }
+    }catch(err){
+      throw err;
+    }
+
   }
 
   function handleOpenDeletePostModal(){
     setIsDeletePostModalOpen(true);
   }
 
-  async function handleCloseDeletePostModal(){
-    await fetchNewPost();
+  function handleCloseDeletePostModal(){
+    fetchNewPost();
     setIsDeletePostModalOpen(false);
   }
 
@@ -46,8 +55,8 @@ export function Post({data, username, fetchNewPost, ...rest}:PostProps){
     setIsEditPostModalOpen(true);
   }
 
-  async function handleCloseEditPostModal(){
-    await fetchNewPost();
+  function handleCloseEditPostModal(){
+    fetchNewPost();
     setIsEditPostModalOpen(false);
   }
   

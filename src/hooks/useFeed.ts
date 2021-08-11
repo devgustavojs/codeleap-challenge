@@ -19,43 +19,22 @@ interface editItem{
   content: string
 }
 export function useFeed(){
-  const [postsData, setPostsData] = useState<PostItem[]>();
-  
-  async function uGetPosts() {
-    try{
-      fetch('https://dev.codeleap.co.uk/careers/')
-      .then(response => response.json())
-      .then((data) => { setPostsData(data.results)});
-      return true;
-     }catch(err){
-       console.log(err)
-       return false;
-     }
-  }
+  const [postsData, setPostsData] = useState<PostItem[]>([]);
 
   async function uCreatePost(username: string, title: string, content: string){
-    const createResponse = await createPost(username, title, content);
-    if(createResponse){
-      uGetPosts();
-    }
-    return createResponse;
+    const createResponse: Promise<PostItem> | any = await createPost(username, title, content);
+    setPostsData([createResponse, ...postsData]);
+    return postsData;
   }
 
   async function uDeletePost(postId: number) {
-    const deleteResult = await deletePost(postId);
+    const deleteResponse = await deletePost(postId);
 
-    if(deleteResult){
-      uGetPosts();
-    };
-    return deleteResult;
+    return deleteResponse;
   }
 
   async function uEditPost(postId: number, newData: editItem){
     const editResponse = await editPost(postId, newData);
-
-    if(editResponse){
-      uGetPosts();
-    }
 
     return editResponse
   }
@@ -63,7 +42,6 @@ export function useFeed(){
   return {
     postsData,
     setPostsData,
-    uGetPosts,
     uCreatePost,
     uEditPost,
     uDeletePost,

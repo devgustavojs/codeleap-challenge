@@ -51,6 +51,13 @@
 
     .username{
       font-weight: 700;
+
+      cursor: not-allowed;
+      
+      transition: text-decoration 0.2s;
+      &:hover{
+        text-decoration: underline;  
+      }
     }
   }
 
