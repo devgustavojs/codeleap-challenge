@@ -15,7 +15,7 @@
  <a href="#tech">Tech</a> • 
 </p>
 
-[Access the project](https://codeleap-challenge.vercel.app/feed)
+[Access the project](https://codeleap-challenge.vercel.app/)
 ### About:
 This is a React challenge that has a login page and a feed to post, edit and delete your post. 
 
