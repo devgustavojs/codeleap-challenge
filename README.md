@@ -24,8 +24,8 @@ This is a React challenge that has a login page and a feed to post and edit your
 - [x] Feed Page
 - [x] Delete Post Modal
 - [x] Edit Item Modal
-- [ ] Next-page
-- [ ] Optimize App
+- [x] Next-page
+- [x] Optimize App
 ### How it Works:
 
 #### useFeed Hook:
