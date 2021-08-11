@@ -39,7 +39,7 @@ export function Feed(){
         .then(response => response.json())
         .then((data) => {
           setAllPostsData(data.results);
-          setNextPage(data.next.replace("http", "https"));
+          data.next ? setNextPage(data.next.replace("http", "https")) : setNextPage(data.next)
         });
       }catch(err){
          throw err;
@@ -51,7 +51,7 @@ export function Feed(){
       fetch(nextData)
       .then(response => response.json())
       .then(data => {
-        setNextPage(data.next.replace("http", "https"));
+        data.next ? setNextPage(data.next.replace("http", "https")) : setNextPage(data.next)
         setAllPostsData([...allPostsData, ...data.results]);
       })
     }catch(err){
