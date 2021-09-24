@@ -1,4 +1,4 @@
-![codeleap logo](https://github.com/devgustavojs/codeleap-challenge/blob/main/assets/codeleap-logo.png)
+![codeleap logo](https://github.com/gustavosgdev/codeleap-challenge/blob/main/assets/codeleap-logo.png)
 
 <h1 align="center" href> CODELEAP CHALLENGE </h1>
 <h2 align="center"> This is an admission challenge to <a href="https://www.codeleap.co.uk/">CodeLeap</a>
@@ -45,4 +45,4 @@ useButton is another custom hook that's help us use the Button component in diff
 - Redux
 - Sass
 - Moment
-> You can see the [package.json](https://github.com/devgustavojs/codeleap-challenge/blob/main/package.json) file.
+> You can see the [package.json](https://github.com/gustavosgdev/codeleap-challenge/blob/main/package.json) file.
